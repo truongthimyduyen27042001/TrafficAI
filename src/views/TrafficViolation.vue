@@ -14,7 +14,7 @@ export default {
 .traffic-violation {
   width: 100vw;
   height: 100vh;
-  background: pink;
+  background: green;
 }
 
 </style>

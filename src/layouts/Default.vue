@@ -2,7 +2,7 @@
   <div class="default">
     <Navbar />
     <main class="main">
-        <slot/>
+        <slot class="slot-main"/>
     </main>
   </div>
 </template>
@@ -16,4 +16,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+main {
+  padding-top: 95px;
+}
 </style>

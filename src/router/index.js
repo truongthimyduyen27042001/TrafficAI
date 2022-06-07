@@ -42,7 +42,16 @@ const routes = [
     path: '/violation',
     name: 'violation',
     component: () => import('../views/TrafficViolation.vue')
-
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/TestView.vue')
+  },
+  {
+    path: '/books',
+    name: 'books',
+    component: () => import('../views/TestBooks.vue')
   },
   {
     path: '*',
