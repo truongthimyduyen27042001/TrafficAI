@@ -30,7 +30,6 @@ const routes = [
     path: '/classification',
     name: 'classification',
     component: () => import('../views/Classification.vue')
-
   },
   {
     path: '/statistics',
