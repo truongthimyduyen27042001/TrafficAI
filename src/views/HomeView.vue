@@ -38,7 +38,7 @@
                     <iframe
                       width="100%"
                       height="500"
-                      src="https://www.youtube.com/embed/t8pPdKYpowI"
+                      src="https://www.youtube.com/embed/t8pPdKYpowI?autoplay=1"
                       title="YouTube video player"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -383,23 +383,23 @@ export default {
   components: {
     GChart,
   },
-  // async created() {
-  //   try {
-  //     axios
-  //       .get(
-  //         `http://localhost:8000/vehicle?year=2022&day=2&month=4&camera=Cam1`
-  //       )
-  //       .then((response) => {
-  //         // JSON responses are automatically parsed.
-  //         this.data_vehicles = response.data;
-  //         console.log(
-  //           "@@@@: " + this.selected_month.number + "," + this.selected_year
-  //         );
-  //       });
-  //   } catch (e) {
-  //     console.log("Error: ", e);
-  //   }
-  // },
+  async created() {
+    try {
+      axios
+        .get(
+          `http://localhost:8000/vehicle?year=2022&day=2&month=4&camera=Cam1`
+        )
+        .then((response) => {
+          // JSON responses are automatically parsed.
+          this.data_vehicles = response.data;
+          console.log(
+            "@@@@: " + this.selected_month.number + "," + this.selected_year
+          );
+        });
+    } catch (e) {
+      console.log("Error: ", e);
+    }
+  },
   data: () => ({
     width: 2,
     radius: 10,

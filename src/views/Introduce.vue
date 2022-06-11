@@ -55,7 +55,7 @@
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/HtpiAUBWS0w"
+                  src="https://www.youtube.com/embed/HtpiAUBWS0w?autoplay=1"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -280,11 +280,6 @@
                 <span style="font-weight: 700">FRONTEND</span>
               </h3>
             </div>
-          </div>
-        </div>
-        <div id="LIST_AVA" class="ladi-element d-flex justify-center align-center">
-          <div class="ladi-ava-item">
-            <img src="../assets/post-1-image@2x.png" alt="">
           </div>
         </div>
         <div id="LIST_PARAGRAPH780" class="ladi-element">
