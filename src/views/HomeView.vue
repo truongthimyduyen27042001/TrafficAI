@@ -10,19 +10,25 @@
             <v-row>
               <v-col cols="12" sm="12">
                 <v-app-bar color="rgba(0,0,0,0)" flat class="mx-8 mb-8 mt-3">
-                  <v-text-field
-                    prepend-icon="mdi-magnify"
-                    color="teal"
-                    placeholder="Search your symptoms"
-                    flat
-                    success
-                  ></v-text-field>
+                  <v-select
+                    :items="cameras"
+                    v-model="selected_camera"
+                    class="choice-camera mr-3"
+                    label="Choice camera"
+                    dense
+                  >
+                  </v-select>
+                  <v-btn color="primary" class="mr-3" elevation="2">Request</v-btn>
+                  <span class="camera-name">You choose: {{ selected_camera }}</span>
                   <v-spacer></v-spacer>
                   <v-chip class="ma-2" color="white">
                     <v-icon left color="teal"> mdi-clock-time-nine </v-icon>
                     14:02 AM Today May,22
                   </v-chip>
                 </v-app-bar>
+              </v-col>
+               <v-col cols="12" sm="12">
+                <v-list two-line> </v-list>
               </v-col>
               <v-col cols="12" sm="24">
                 <v-card
@@ -133,17 +139,11 @@
         <v-app :style="{ background: $vuetify.theme.themes.light.background }">
           <v-container>
             <v-row>
-              <v-col cols="12" sm="12">
-                <v-list two-line> </v-list>
-              </v-col>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="3">
                 <v-row>
-                  <v-col cols="12" md="2">
-                    <v-card height="50px" width="10px" color="green"></v-card>
-                  </v-col>
-                  <v-col cols="12" md="10">
-                    <v-list two-line subheader class="ml-n8">
-                      <v-list-item>
+                  <v-col cols="12" md="8">
+                    <v-list two-line subheader class="ml-n8" style="background-color: inherit">
+                      <v-list-item class="v-boder-left v-border-blue">
                         <v-list-item-content>
                           <v-list-item-subtitle>Car</v-list-item-subtitle>
                           <v-list-item-title>100</v-list-item-title>
@@ -153,14 +153,11 @@
                   </v-col>
                 </v-row>
               </v-col>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="3">
                 <v-row>
-                  <v-col cols="12" md="2">
-                    <v-card height="50px" width="10px" color="red"></v-card>
-                  </v-col>
                   <v-col cols="12" md="10">
                     <v-list two-line subheader class="ml-n8">
-                      <v-list-item>
+                      <v-list-item class="v-boder-left v-border-yellow">
                         <v-list-item-content>
                           <v-list-item-subtitle>Truck</v-list-item-subtitle>
                           <v-list-item-title>78</v-list-item-title>
@@ -170,14 +167,11 @@
                   </v-col>
                 </v-row>
               </v-col>
-              <v-col cols="12" md="4">
+              <v-col cols="12" md="3">
                 <v-row>
-                  <v-col cols="12" md="2">
-                    <v-card height="50px" width="10px" color="grey"></v-card>
-                  </v-col>
                   <v-col cols="12" md="10">
                     <v-list two-line subheader class="ml-n8">
-                      <v-list-item>
+                      <v-list-item class="v-boder-left v-border-red">
                         <v-list-item-content>
                           <v-list-item-subtitle>Motobike</v-list-item-subtitle>
                           <v-list-item-title>120</v-list-item-title>
@@ -187,44 +181,108 @@
                   </v-col>
                 </v-row>
               </v-col>
+              <v-col cols="12" md="3">
+                <v-row>
+                  <v-col cols="12" md="10">
+                    <v-list two-line subheader class="ml-n8">
+                      <v-list-item class="v-boder-left v-border-pink">
+                        <v-list-item-content>
+                          <v-list-item-subtitle>Bus</v-list-item-subtitle>
+                          <v-list-item-title>8</v-list-item-title>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </v-list>
+                  </v-col>
+                </v-row>
+              </v-col>
               <v-col cols="12" sm="12">
                 <v-list>
-                  <v-list-item>
+                  <v-list-item class="d-flex justify-content-between pl-0 pr-0">
                     <v-item-content
-                      v-for="item in list_analysis_choice"
+                      style="width: 30%"
+                      v-for="item in list_time_analysis_choice"
                       :key="item.id"
                       class="item-analysis"
                     >
                       <v-btn
                         class="mr-3"
+                        style="width: 100%"
                         :class="item.active ? 'btn-analysis-active' : ''"
+                        @click="choiceTimeHandle(item.id)"
                         >{{ item.name }}</v-btn
                       >
                     </v-item-content>
                   </v-list-item>
                 </v-list>
               </v-col>
-              <v-col cols="12" sm="12">
-                <select v-model="selected_month" class="select-month">
+              <v-col
+                v-show="list_time_analysis_choice[0].active == true"
+                cols="12"
+                sm="12"
+                class="mb-3"
+              >
+                <select
+                  v-model="selected_month"
+                  class="select-month text-center mr-4"
+                  style="width: 40%"
+                >
                   <option v-for="(month, index) in months" :key="index">
                     {{ month }}
                   </option>
                 </select>
+                <select
+                  v-model="selected_year"
+                  class="select-month text-center"
+                  style="width: 20%"
+                >
+                  <option v-for="(year, index) in years" :key="index">
+                    {{ year }}
+                  </option>
+                </select>
+                <v-btn
+                  class="ml-3"
+                  style="background-color: #00897b; color: #fff"
+                  >Request</v-btn
+                >
               </v-col>
-              <v-col cols="12" sm="12">
+              <v-col
+                cols="12"
+                sm="12"
+                class="mb-3"
+                v-show="list_time_analysis_choice[1].active == true"
+              >
                 <v-card
                   class="mr-12 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-xl mt-n4"
                   color="teal lighten-5"
                   flat
                 >
-                  <v-date-picker
-                    style="width: 100%"
-                    class="calendar-date"
-                    :value="null"
-                    color="#00897b"
-                    is-dark
-                    is-range
-                  />
+                  <date-picker
+                    v-model="date"
+                    :config="options"
+                    @dp-change="onChange"
+                    class="text-center"
+                  ></date-picker>
+                </v-card>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="12"
+                class="mb-3"
+                v-show="list_time_analysis_choice[2].active == true"
+              >
+                <v-card
+                  class="mr-12 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-xl mt-n4 d-flex justify-center"
+                  flat
+                >
+                  <select
+                  v-model="selected_year"
+                  class="select-month text-center"
+                  style="width: 50%"
+                >
+                  <option v-for="(year, index) in years" :key="index">
+                    {{ year }}
+                  </option>
+                </select>
                 </v-card>
               </v-col>
               <v-col cols="12" sm="12">
@@ -286,25 +344,25 @@ export default {
     fill: false,
     type: "trend",
     autoLineWidth: false,
-    list_analysis_choice: [
+    date: new Date(),
+    options: {
+      format: "DD/MM/YYYY",
+      useCurrent: true,
+    },
+    list_time_analysis_choice: [
       {
-        id: 1,
+        id: 0,
         name: "Month",
-        active: false,
-      },
-      {
-        id: 2,
-        name: "Week",
         active: true,
       },
       {
-        id: 3,
+        id: 1,
         name: "Day",
         active: false,
       },
       {
-        id: 4,
-        name: "Hour",
+        id: 2,
+        name: "Year",
         active: false,
       },
     ],
@@ -327,16 +385,54 @@ export default {
       "November",
       "December",
     ],
+    years: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+    selected_year: "2022",
     selected_month: "January",
+    cameras: ["Camera 1", "Camera 2"],
+    selected_camera: "Camera 1",
   }),
   computed: {
     theme() {
       return this.$vuetify.theme.dark ? "dark" : "light";
     },
   },
+  methods: {
+    onChange() {
+      alert(this.date);
+    },
+    choiceTimeHandle(id) {
+      this.list_time_analysis_choice
+        .filter((x) => x.id === id)
+        .map((x) => (x.active = true));
+      this.list_time_analysis_choice
+        .filter((x) => x.id !== id)
+        .map((x) => (x.active = false));
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
+date-picker {
+  input {
+    padding: 10px;
+    text-align: center;
+  }
+}
+.v-boder-left {
+  border-left: 3px solid #00897b;
+}
+.v-boder-left.v-border-red {
+   border-left: 3px solid red;
+}
+.v-boder-left.v-border-yellow {
+  border-left: 3px solid rgb(251, 251, 170);
+}
+.v-boder-left.v-border-pink {
+  border-left: 3px solid rgb(241, 184, 194);;
+}
+.v-boder-left.v-border-blue {
+  border-left: 3px solid rgb(166, 166, 255);;
+}
 .item-analysis {
   button {
     background-color: #fff !important;
