@@ -8,7 +8,6 @@ const routes = [
   {
     path: '/',
     name: 'introduce',
-    meta: {layout: 'blank'},
     component: () => import('../views/Introduce.vue')
   },
   {

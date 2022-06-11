@@ -16,10 +16,12 @@ import Chartkick from 'vue-chartkick'
 import VueChartkick from 'vue-chartkick'
 import VCalendar from 'v-calendar';
 import Calendar from 'v-calendar/lib/components/calendar.umd'
-import DatePicker from 'v-calendar/lib/components/date-picker.umd'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueResource from 'vue-resource'
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+import datePicker from 'vue-bootstrap-datetimepicker';
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 
 library.add(fas)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -28,7 +30,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('default-layout',Default)
 Vue.component('blank-layout',Blank)
 Vue.component('calendar', Calendar)
-Vue.component('date-picker', DatePicker)
+Vue.component('date-picker', datePicker)
 Vue.use(Embed);
 Vue.use(Chartkick.use(Chart));
 Vue.use(VueChartkick)
