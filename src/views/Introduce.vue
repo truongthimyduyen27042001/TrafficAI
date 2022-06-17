@@ -19,24 +19,7 @@
             <div class="ladi-image-background"></div>
           </div>
         </div>
-        <div id="HEADLINE701" class="ladi-element">
-          <h3 class="ladi-headline">18/07 - 25/07 <br /><br /></h3>
-        </div>
-        <div id="HEADLINE706" class="ladi-element">
-          <h3 class="ladi-headline">28/05 - 24/06 <br /><br /></h3>
-        </div>
-        <div id="HEADLINE831" class="ladi-element">
-          <h3 class="ladi-headline">10/07 - 17/07 <br /><br /></h3>
-        </div>
-        <div id="HEADLINE833" class="ladi-element">
-          <h3 class="ladi-headline">26/07 - 27/07 <br /><br /></h3>
-        </div>
         <div id="IMAGE824" class="ladi-element">
-          <div class="ladi-image">
-            <div class="ladi-image-background"></div>
-          </div>
-        </div>
-        <div id="IMAGE825" class="ladi-element">
           <div class="ladi-image">
             <div class="ladi-image-background"></div>
           </div>
@@ -52,16 +35,13 @@
           </div>
         </div>
         <div id="HEADLINE707" class="ladi-element">
-          <h3 class="ladi-headline">VÒNG ĐĂNG KÝ</h3>
+          <h3 class="ladi-headline">CHỌN CAMERA</h3>
         </div>
         <div id="HEADLINE828" class="ladi-element">
-          <h3 class="ladi-headline">VÒNG SƠ LOẠI</h3>
+          <h3 class="ladi-headline">NHẬN DIỆN XE</h3>
         </div>
         <div id="HEADLINE829" class="ladi-element">
-          <h3 class="ladi-headline">VÒNG LOẠI</h3>
-        </div>
-        <div id="HEADLINE832" class="ladi-element">
-          <h3 class="ladi-headline">HACKING DAY</h3>
+          <h3 class="ladi-headline">PHÂN TÍCH LƯU LƯỢNG</h3>
         </div>
       </div>
     </div>
@@ -72,7 +52,15 @@
           <div class="ladi-group">
             <div id="IMAGE581" class="ladi-element ladi-animation">
               <div class="ladi-image ladi-transition">
-                <div class="ladi-image-background"></div>
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/HtpiAUBWS0w"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
               </div>
             </div>
           </div>
@@ -80,33 +68,32 @@
         <div id="PARAGRAPH189" class="ladi-element">
           <p class="ladi-paragraph">
             <span style="font-weight: bold; color: rgb(255, 237, 0)"
-              >"HACKATHON 2022"</span
+              >"PBL5 2022"</span
             >
-            là cuộc thi, sân chơi thực tế và chuyên nghiệp dành cho các
-            <span style="font-weight: bold">sinh viên</span> tài năng, nhiệt
-            huyết với mục đích
-            <span style="color: rgb(255, 237, 0)"
-              ><span style="font-weight: bold"
-                >tạo ra các giải pháp công nghệ thiết thực</span
-              > </span
-            >hỗ trợ doanh nghiệp miền Trung hồi phục kinh tế sau khủng hoảng
-            dịch Covid.
+            là một project cuối kỳ thực hiện việc nhận diện phương tiện giao
+            thông và đưa ra thống kê lưu lượng xe thông qua camera
+            <span style="font-weight: bold">realtime </span>được đặt trên các
+            tuyến đường, dữ liệu camera được lấy từ rasbperry đưa về giao diện
+            để tiện theo dõi lưu lượng xe.
+
             <br />
             <br /><span style="font-weight: bold; color: rgb(255, 237, 0)"
-              >"HACKATHON 2022"</span
+              >"PBL5 2022"</span
             >
-            còn là sân chơi cho các bạn thỏa sức sáng tạo ra những ý tưởng công
-            nghệ đột phá, có cơ hội
-            <span style="color: rgb(255, 237, 0)"
-              ><span style="font-weight: bold">kết nối với</span
-              ><span style="font-weight: bold"> </span
-              ><span style="font-weight: bold"
-                >các chuyên gia, doanh nghiệp</span
+            cho phép chúng ta có thể theo dõi lưu lượng xe theo các ngày, theo
+            tháng, theo từng năm và nhận diện được 4 loại phương tiện chính là
+            Xe máy, xe con, xe tải và xe bus.
+            <br />
+            <br />
+            <span style="color: rgb(255, 237, 0)">
+              <span style="font-weight: bold"
+                >Chúng em mong muốn phát triển dự án</span
               ></span
             >
-            và các bạn cùng chung niềm đam mê công nghệ. Qua đó, ươm mầm những
-            tài năng lập trình, hỗ trợ phát triển ngay từ khi các bạn còn trên
-            giảng đường đại học.<br /><br />
+            với các chức năng được bổ sung như nhận diện biển số xe, nhận diện
+            đèn giao thông phát triển hệ thống có thể giám sát phương tiện đi
+            lại, đảm bảo an toàn giao thông, lưu thông tin nhưng phương tiện vi
+            phạm giao thông để thuận tiện cho việc xử phạt.<br /><br />
           </p>
         </div>
         <div id="SHAPE193" class="ladi-element">
@@ -136,12 +123,12 @@
         </div>
         <div id="HEADLINE191" class="ladi-element">
           <h3 class="ladi-headline">
-            <span style="font-weight: 700">HACKATHON&nbsp;</span>
+            <span style="font-weight: 700">PBL5&nbsp;</span>
           </h3>
         </div>
         <div id="HEADLINE190" class="ladi-element">
           <h3 class="ladi-headline">
-            <span style="font-weight: bold">VỀ CHÚNG TÔI</span>
+            <span style="font-weight: bold">GIỚI THIỆU</span>
           </h3>
         </div>
       </div>
@@ -151,86 +138,14 @@
       <div class="ladi-overlay"></div>
       <div class="ladi-container">
         <div id="HEADLINE206" class="ladi-element">
-          <h3 class="ladi-headline">HACKATHON 2022<br /></h3>
+          <h3 class="ladi-headline">PBL5 - 2022<br /></h3>
         </div>
         <div id="HEADLINE207" class="ladi-element ladi-animation">
-          <h3 class="ladi-headline">MANG ĐẾN ĐIỀU GÌ?<br /></h3>
-        </div>
-        <div id="LIST_PARAGRAPH218" class="ladi-element">
-          <div class="ladi-list-paragraph">
-            <ul>
-              <li class="">
-                <span style="font-weight: bold; color: rgb(255, 237, 0)"
-                  >01</span
-                ><span style="color: rgb(255, 237, 0); font-weight: bold"
-                  >&nbsp;</span
-                >Module<span style="font-weight: bold; color: rgb(232, 184, 48)"
-                  >&nbsp;</span
-                >về Xây dựng và phát triển ý tưởng
-              </li>
-              <li class="">
-                <span style="font-weight: bold; color: rgb(255, 237, 0)"
-                  >01</span
-                ><span style="font-weight: bold; color: rgb(232, 184, 48)"
-                  >&nbsp;</span
-                >Module về Quản lý dự án
-              </li>
-              <li class="">
-                <span style="font-weight: bold"
-                  ><span style="color: rgb(255, 237, 0)">01</span>&nbsp;</span
-                >Module về Kỹ năng làm việc nhóm
-              </li>
-              <li class="">
-                <span style="font-weight: bold"
-                  ><span style="color: rgb(255, 237, 0)">01</span>&nbsp;</span
-                >Module về Kỹ năng thuyết trình
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div id="SHAPE216" class="ladi-element">
-          <div class="ladi-shape">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="100%"
-              height="100%"
-              preserveAspectRatio="none"
-              viewBox="0 0 134.5 134.5"
-              class=""
-              fill='url("#SHAPE216_desktop_gradient")'
-            >
-              <defs id="SHAPE216_defs">
-                <linearGradient
-                  id="SHAPE216_desktop_gradient"
-                  gradientTransform="rotate(0)"
-                >
-                  <stop offset="0%" stop-color="#FBD72B"></stop>
-                  <stop offset="100%" stop-color="#F9484A"></stop>
-                </linearGradient>
-              </defs>
-              <path
-                d="M67.25,85.13A17.88,17.88,0,1,1,85.14,67.25,17.91,17.91,0,0,1,67.25,85.13Zm0-31.08a13.2,13.2,0,1,0,13.2,13.2A13.21,13.21,0,0,0,67.25,54.05Z"
-              ></path>
-              <path
-                d="M67.25,100.49a33.24,33.24,0,0,1,0-66.48h1.4V38.7h-1.4A28.55,28.55,0,1,0,95.8,67.25v-1.4h4.69v1.4A33.28,33.28,0,0,1,67.25,100.49Z"
-              ></path>
-              <path
-                d="M67.25,121.22a54,54,0,0,1-54-54v-1.4H18v1.4A49.28,49.28,0,1,0,84.36,21l-1.31-.49,1.63-4.39,1.31.48a54,54,0,0,1-18.74,104.6Z"
-              ></path>
-              <path
-                d="M68.65,134.5h-1.4a67.24,67.24,0,1,1,54.69-28.11l-.81,1.13-3.81-2.73.82-1.13a62.57,62.57,0,1,0-50.89,26.15h1.4Z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-        <div id="HEADLINE217" class="ladi-element">
-          <h3 class="ladi-headline">
-            <span style="font-weight: bold">Đào Tạo</span>
-          </h3>
+          <h3 class="ladi-headline">CHỨC NĂNG CHÍNH<br /></h3>
         </div>
         <div id="HEADLINE224" class="ladi-element">
           <h3 class="ladi-headline">
-            <span style="font-weight: 700">Tranh tài</span>
+            <span style="font-weight: 700">Theo dõi camera</span>
           </h3>
         </div>
         <div id="SHAPE223" class="ladi-element">
@@ -270,7 +185,7 @@
         </div>
         <div id="HEADLINE228" class="ladi-element">
           <h3 class="ladi-headline">
-            <span style="font-weight: 700">Kết nối</span>
+            <span style="font-weight: 700">Thống kê chi tiết</span>
           </h3>
         </div>
         <div id="SHAPE227" class="ladi-element">
@@ -308,94 +223,8 @@
             </svg>
           </div>
         </div>
-        <div id="LIST_PARAGRAPH225" class="ladi-element">
-          <div class="ladi-list-paragraph">
-            <ul>
-              <li class="">
-                Duy nhất<span
-                  style="font-weight: bold; color: rgb(232, 183, 48)"
-                >
-                </span
-                ><span style="color: rgb(255, 237, 0)"
-                  ><span style="font-weight: bold">01 </span
-                  ><span style="font-weight: bold">nhà vô địch</span></span
-                >
-                từ 50 đội thi xuất sắc nhất.
-              </li>
-              <li class="">
-                Toàn bộ sinh viên ngoại tỉnh thuộc<span
-                  style="font-weight: bold; color: rgb(231, 228, 71)"
-                >
-                </span
-                ><span style="font-weight: bold; color: rgb(255, 237, 0)"
-                  >TOP 10</span
-                >
-                được tài trợ lưu trú trong hacking day.
-              </li>
-              <li class="">
-                Giải quyết<span style="color: rgb(255, 237, 0)">
-                  <span style="font-weight: bold"
-                    >các vấn đề thực tiễn</span
-                  ></span
-                >&nbsp;nhằm hỗ trợ phục hồi kinh tế miền Trung.
-              </li>
-              <li class="">
-                Tranh tài cùng 300 sinh viên tài năng trên
-                <span style="color: rgb(255, 237, 0)"
-                  ><span style="font-weight: bold">khắp </span
-                  ><span style="font-weight: bold">miền Trung.</span></span
-                >
-              </li>
-              <li class="">
-                Cơ hội được hỗ trợ<span
-                  style="font-weight: 700; color: rgb(231, 228, 71)"
-                >
-                </span
-                ><span style="font-weight: 700; color: rgb(255, 237, 0)"
-                  >hiện thực hóa dự án.</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div id="LIST_PARAGRAPH229" class="ladi-element">
-          <div class="ladi-list-paragraph">
-            <ul>
-              <li class="">
-                Được coaching cùng đội ngũ<span
-                  style="color: rgb(232, 183, 48); font-weight: 700"
-                >
-                </span
-                ><span style="font-weight: 700; color: rgb(255, 237, 0)"
-                  >mentor</span
-                ><span style="font-weight: 700; color: rgb(231, 227, 71)">
-                </span
-                >giàu kinh nghiệm thực chiến.
-              </li>
-              <li class="">
-                Được đào tạo bởi dàn<span
-                  style="font-weight: 700; color: rgb(255, 237, 0)"
-                >
-                  trainer</span
-                ><span style="font-weight: 700"> </span>chuyên môn cao.
-              </li>
-              <li class="">
-                Được gặp gỡ những<span style="color: rgb(255, 237, 0)">
-                  <span style="font-weight: bold"
-                    >sinh viên tài năng</span
-                  ></span
-                >
-                cùng chung niềm đam mê công nghệ.
-              </li>
-              <li class="">
-                <span style="font-weight: bold; color: rgb(255, 237, 0)"
-                  >Cơ hội</span
-                >
-                trở thành nhân sự chính thức tại các doanh nghiệp.
-              </li>
-            </ul>
-          </div>
-        </div>
+        <div id="LIST_PARAGRAPH225" class="ladi-element"></div>
+        <div id="LIST_PARAGRAPH229" class="ladi-element"></div>
       </div>
     </div>
     <div id="SECTION250" class="ladi-section">
@@ -409,9 +238,7 @@
               </li>
               <li class="">
                 Giấy chứng nhận
-                <span style="font-weight: bold"
-                  >"Runner-up Hackathon 2022"</span
-                >
+                <span style="font-weight: bold">"Runner-up PBL52022"</span>
               </li>
               <li class="">
                 03 Voucher khoá học về IT, AI và Digital Marketing thuộc VTC
@@ -429,7 +256,7 @@
               </li>
               <li class="">
                 Giấy chứng nhận<span style="font-weight: bold">
-                  "TOP 5 Hackathon 2022"</span
+                  "TOP 5 PBL52022"</span
                 >
               </li>
               <li class="">
@@ -446,32 +273,18 @@
               <h3 class="ladi-headline">01<br /></h3>
             </div>
             <div id="HEADLINE257" class="ladi-element">
-              <h3 class="ladi-headline">CHAMPION <br /><br /></h3>
+              <h3 class="ladi-headline">Trương Thị Mỹ Duyên<br /><br /></h3>
             </div>
             <div id="HEADLINE258" class="ladi-element">
               <h3 class="ladi-headline">
-                <span style="font-weight: 700">ĐỘI THI XUẤT SẮC NHẤT</span>
+                <span style="font-weight: 700">FRONTEND</span>
               </h3>
             </div>
           </div>
         </div>
-        <div id="LIST_PARAGRAPH259" class="ladi-element">
-          <div class="ladi-list-paragraph">
-            <ul>
-              <li class="">
-                Tiền mặt <span style="font-weight: bold">15.000.000 đồng </span>
-              </li>
-              <li class="">
-                Giấy chứng nhận
-                <span style="font-weight: bold">"Champion Hackathon 2022"</span>
-              </li>
-              <li class="">
-                04 Voucher khoá học về IT, AI và Digital Marketing thuộc VTC
-                Academy trị giá&nbsp;<span style="font-weight: bold"
-                  >48.000.000 đồng/suất.</span
-                >
-              </li>
-            </ul>
+        <div id="LIST_AVA" class="ladi-element d-flex justify-center align-center">
+          <div class="ladi-ava-item">
+            <img src="../assets/post-1-image@2x.png" alt="">
           </div>
         </div>
         <div id="LIST_PARAGRAPH780" class="ladi-element">
@@ -480,7 +293,7 @@
               <li class="">
                 Tiền mặt <span style="font-weight: bold">5.000.000 đồng</span>
               </li>
-              <li class="">Giấy chứng nhận "Third-prize Hackathon 2022"</li>
+              <li class="">Giấy chứng nhận "Third-prize PBL52022"</li>
               <li class="">
                 02 Voucher khoá học về IT, AI và Digital Marketing thuộc VTC
                 Academy trị giá
@@ -527,15 +340,15 @@
               </div>
             </div>
             <div id="HEADLINE264" class="ladi-element">
-              <h3 class="ladi-headline">RUNNER-UP <br /><br /></h3>
+              <h3 class="ladi-headline">DƯƠNG ANH TUÂN<br /><br /></h3>
             </div>
             <div id="HEADLINE265" class="ladi-element">
               <h3 class="ladi-headline">
-                <span style="font-weight: 700">Á QUÂN CUỘC THI</span>
+                <span style="font-weight: 700">BACKEND</span>
               </h3>
             </div>
             <div id="HEADLINE854" class="ladi-element">
-              <h3 class="ladi-headline">01<br /></h3>
+              <h3 class="ladi-headline">02<br /></h3>
             </div>
           </div>
         </div>
@@ -578,21 +391,21 @@
             </div>
             <div id="HEADLINE271" class="ladi-element">
               <h3 class="ladi-headline">
-                <span style="font-weight: 700">GIẢI KHUYẾN KHÍCH</span>
+                <span style="font-weight: 700">AI</span>
               </h3>
             </div>
             <div id="HEADLINE857" class="ladi-element">
-              <h3 class="ladi-headline">02<br /></h3>
+              <h3 class="ladi-headline">04<br /></h3>
             </div>
             <div id="HEADLINE860" class="ladi-element">
-              <h3 class="ladi-headline">ĐỘI THI</h3>
+              <h3 class="ladi-headline">PHẠM HỮU BẰNG</h3>
             </div>
           </div>
         </div>
         <div id="GROUP865" class="ladi-element">
           <div class="ladi-group">
             <div id="HEADLINE856" class="ladi-element">
-              <h3 class="ladi-headline">01<br /></h3>
+              <h3 class="ladi-headline">03<br /></h3>
             </div>
             <div id="SHAPE776" class="ladi-element">
               <div class="ladi-shape">
@@ -631,11 +444,11 @@
             </div>
             <div id="HEADLINE779" class="ladi-element">
               <h3 class="ladi-headline">
-                <span style="font-weight: 700">GIẢI BA</span>
+                <span style="font-weight: 700">AI</span>
               </h3>
             </div>
             <div id="HEADLINE859" class="ladi-element">
-              <h3 class="ladi-headline">THIRD-PRIZE<br /></h3>
+              <h3 class="ladi-headline">NGUYỄN THANH TOÀN</h3><br />
             </div>
           </div>
         </div>
@@ -756,13 +569,12 @@ ul {
           height: 100%;
           overflow: hidden;
           pointer-events: none;
-          filter: brightness(70%);
           .ladi-image-background {
             width: 684.609px;
             height: 745.935px;
             top: 0px;
             left: 0px;
-            background-image: url(https://w.ladicdn.com/s1000x1050/595dad3919fa5e6900eb45ee/a-20220607150753.png);
+            background-image: url(https://drive.google.com/file/d/1FukXanMGTQMT67cMCxctLS8n9EkIQzhB/view?usp=sharing);
             background-repeat: no-repeat;
             background-position: left top;
             background-size: cover;
@@ -797,16 +609,18 @@ ul {
         }
       }
       #IMAGE823 {
-        width: 563.306px;
-        height: 97.1774px;
+        width: 800px;
+        height: 200px;
         top: 248.854px;
-        left: 466.688px;
+        left: 300px;
         .ladi-image > .ladi-image-background {
-          width: 563.306px;
-          height: 97.1774px;
+          width: 100%;
+          height: 100%;
           top: 0px;
           left: 0px;
-          background-image: url(https://w.ladicdn.com/s900x400/595dad3919fa5e6900eb45ee/hackthefuture-20220607151226.png);
+          background-position: center center;
+          background-size: cover;
+          background-image: url(../assets/logo_title.png);
         }
       }
       .ladi-headline {
@@ -814,54 +628,6 @@ ul {
         display: inline-block;
         background-size: cover;
         background-position: center center;
-      }
-      #HEADLINE701 {
-        width: 142px;
-        top: 511.613px;
-        left: 765.157px;
-        .ladi-headline {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 255, 255);
-          font-size: 13px;
-          text-align: center;
-          line-height: 1.6;
-        }
-      }
-      #HEADLINE706 {
-        width: 156px;
-        top: 499.979px;
-        left: 439.244px;
-        .ladi-headline {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 255, 255);
-          font-size: 13px;
-          text-align: center;
-          line-height: 1.6;
-        }
-      }
-      #HEADLINE831 {
-        width: 142px;
-        top: 507.145px;
-        left: 604.072px;
-        .ladi-headline {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 255, 255);
-          font-size: 13px;
-          text-align: center;
-          line-height: 1.6;
-        }
-      }
-      #HEADLINE833 {
-        width: 173px;
-        top: 529.145px;
-        left: 910.158px;
-        .ladi-headline {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 255, 255);
-          font-size: 13px;
-          text-align: center;
-          line-height: 1.6;
-        }
       }
       #IMAGE824 {
         width: 58.9726px;
@@ -878,25 +644,10 @@ ul {
           }
         }
       }
-      #IMAGE825 {
-        width: 82.2138px;
-        height: 66.6984px;
-        top: 425.521px;
-        left: 947.78px;
-        .ladi-image {
-          .ladi-image-background {
-            width: 82.2138px;
-            height: 66.6984px;
-            top: 0px;
-            left: 0px;
-            background-image: url(https://w.ladicdn.com/s400x400/595dad3919fa5e6900eb45ee/4-20220607151449.png);
-          }
-        }
-      }
       #IMAGE826 {
         width: 60.1585px;
         height: 49.9236px;
-        top: 417.703px;
+        top: 422.914px;
         left: 485.822px;
         .ladi-image {
           .ladi-image-background {
@@ -925,7 +676,7 @@ ul {
       }
       #HEADLINE707 {
         width: 148px;
-        top: 477.979px;
+        top: 489.613px;
         left: 443.244px;
         .ladi-headline {
           font-family: "Montserrat", sans-serif;
@@ -950,22 +701,9 @@ ul {
         }
       }
       #HEADLINE829 {
-        width: 137px;
+        width: fit-content;
         top: 489.613px;
         left: 765.157px;
-        .ladi-headline {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 255, 255);
-          font-size: 14px;
-          font-weight: bold;
-          text-align: center;
-          line-height: 1.6;
-        }
-      }
-      #HEADLINE832 {
-        width: 137px;
-        top: 507.145px;
-        left: 928.158px;
         .ladi-headline {
           font-family: "Montserrat", sans-serif;
           color: rgb(255, 255, 255);
@@ -1008,17 +746,15 @@ ul {
             left: 0px;
             .ladi-image {
               position: absolute;
+              background: black;
+              width: 80%;
+              height: 65%;
+              bottom: 0px;
+              left: 150px;
+            }
+            iframe {
               width: 100%;
               height: 100%;
-              overflow: hidden;
-              pointer-events: none;
-              .ladi-image-background {
-                width: 803.51px;
-                height: 557.273px;
-                top: 0px;
-                left: 0px;
-                background-image: url(https://w.ladicdn.com/s1150x900/595dad3919fa5e6900eb45ee/logo-hackathon-02-1-20220527153217.png);
-              }
             }
           }
         }
@@ -1104,7 +840,6 @@ ul {
         }
       }
       #HEADLINE207 {
-        width: 438px;
         top: 176.336px;
         left: -76px;
         .ladi-headline {
@@ -1123,31 +858,6 @@ ul {
           line-height: 1.4;
         }
       }
-      #LIST_PARAGRAPH218 {
-        width: 380px;
-        top: 228.092px;
-        left: 511.006px;
-        .ladi-list-paragraph {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 255, 255);
-          font-size: 15px;
-          line-height: 1.6;
-          ul {
-            li {
-              padding-left: 30px;
-            }
-          }
-        }
-      }
-      #SHAPE216 {
-        width: 60.0064px;
-        height: 56.997px;
-        top: 156.249px;
-        left: 511.006px;
-        svg:last-child {
-          fill: url(#SHAPE216_desktop_gradient);
-        }
-      }
       #HEADLINE217 {
         width: 128px;
         top: 168.247px;
@@ -1160,8 +870,7 @@ ul {
         }
       }
       #HEADLINE224 {
-        width: 166px;
-        top: 476.921px;
+        top: 360px;
         left: 179px;
         .ladi-headline {
           font-family: "Montserrat", sans-serif;
@@ -1173,12 +882,11 @@ ul {
       #SHAPE223 {
         width: 60.0064px;
         height: 56.997px;
-        top: 473.422px;
+        top: 350px;
         left: 98px;
       }
       #HEADLINE228 {
-        width: 101px;
-        top: 476.913px;
+        top: 360px;
         left: 671.006px;
         .ladi-headline {
           font-family: "Montserrat", sans-serif;
@@ -1190,7 +898,7 @@ ul {
       #SHAPE227 {
         width: 60.0064px;
         height: 56.997px;
-        top: 473.418px;
+        top: 350px;
         left: 583.006px;
       }
       #LIST_PARAGRAPH225 {
@@ -1279,7 +987,6 @@ ul {
             top: 61.999px;
             left: 0px;
             .ladi-headline {
-              font-family: "Alfa Slab One", cursive;
               background: linear-gradient(180deg, #ffed00, #ff0000);
               color: white;
               font-size: 131px;
@@ -1292,11 +999,10 @@ ul {
             }
           }
           #HEADLINE257 {
-            width: 243px;
-            top: 100.261px;
+            top: 130.261px;
             left: 176.291px;
+            width: 500px;
             .ladi-headline {
-              font-family: "Alfa Slab One", cursive;
               background: linear-gradient(180deg, #ffed00, #ff0000);
               color: white;
               font-size: 32px;
@@ -1315,7 +1021,7 @@ ul {
           }
           #HEADLINE258 {
             width: 203px;
-            top: 150.343px;
+            top: 175.343px;
             left: 178.146px;
             .ladi-headline {
               font-family: "Montserrat", sans-serif;
@@ -1326,19 +1032,23 @@ ul {
           }
         }
       }
-      #LIST_PARAGRAPH259 {
+      #LIST_AVA {
         width: 510px;
         top: 140.1px;
-        left: 475px;
-        .ladi-list-paragraph {
-          font-family: "Montserrat", sans-serif;
-          color: rgb(255, 237, 0);
-          font-size: 15px;
-          line-height: 2;
-          ul {
-            li {
-              padding-left: 30px;
-            }
+        left: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .ladi-ava-item {
+          width: 250px;
+          height: 250px;
+          background-color: red;
+          overflow: hidden;
+          border-radius: 50%;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
         }
       }
@@ -1360,7 +1070,7 @@ ul {
         }
       }
       #GROUP855 {
-        width: 456.338px;
+        width: 600px;
         height: 267.997px;
         top: 285.953px;
         left: 555px;
@@ -1371,11 +1081,9 @@ ul {
           left: 66.634px;
         }
         #HEADLINE264 {
-          width: 281px;
           top: 92.997px;
           left: 175.338px;
           .ladi-headline {
-            font-family: "Alfa Slab One", cursive;
             background: linear-gradient(180deg, #ffed00, #ff0000);
             color: white;
             font-size: 32px;
@@ -1408,7 +1116,6 @@ ul {
           top: 57.997px;
           left: 0px;
           .ladi-headline {
-            font-family: "Alfa Slab One", cursive;
             background: linear-gradient(180deg, #ffed00, #ff0000);
             color: white;
             font-size: 131px;
@@ -1434,8 +1141,8 @@ ul {
         }
         #HEADLINE271 {
           width: 321px;
-          top: 193.747px;
-          left: 0px;
+          top: 110px;
+          left: 170px;
           .ladi-headline {
             font-family: "Montserrat", sans-serif;
             color: rgb(255, 255, 255);
@@ -1448,7 +1155,6 @@ ul {
           top: -30px;
           left: 0px;
           .ladi-headline {
-            font-family: "Alfa Slab One", cursive;
             background: linear-gradient(180deg, #ffed00, #ff0000);
             color: white;
             font-size: 131px;
@@ -1462,10 +1168,9 @@ ul {
         }
         #HEADLINE860 {
           width: 281px;
-          top: 143.747px;
-          left: 0px;
+          top: 30px;
+          left: 170px;
           .ladi-headline {
-            font-family: "Alfa Slab One", cursive;
             background: linear-gradient(180deg, #ffed00, #ff0000);
             color: white;
             -webkit-background-clip: text;
@@ -1475,7 +1180,7 @@ ul {
             font-weight: bold;
             text-align: left;
             letter-spacing: 5px;
-            line-height: 1.6;
+            line-height: 1.1;
             filter: drop-shadow(rgba(255, 255, 255, 0.7) 1px 2px 3px);
             -webkit-text-stroke: 0px white;
           }
@@ -1491,7 +1196,6 @@ ul {
           top: 61.843px;
           left: 0px;
           .ladi-headline {
-            font-family: "Alfa Slab One", cursive;
             background: linear-gradient(180deg, #ffed00, #ff0000);
             color: white;
             font-size: 131px;
@@ -1511,7 +1215,7 @@ ul {
         }
         #HEADLINE779 {
           width: 203px;
-          top: 150.343px;
+          top: 200px;
           left: 182.855px;
           .ladi-headline {
             font-family: "Montserrat", sans-serif;
@@ -1522,22 +1226,19 @@ ul {
         }
         #HEADLINE859 {
           width: 343px;
-          top: 98.836px;
-          left: 182.855px;
+          top: 120px;
+          left: 170px;
           .ladi-headline {
-            font-family: "Alfa Slab One", cursive;
             background: linear-gradient(180deg, #ffed00, #ff0000);
             color: white;
             font-size: 32px;
-            line-height: 1.6;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             color: white;
-            font-size: 32px;
             font-weight: bold;
             text-align: left;
             letter-spacing: 5px;
-            line-height: 1.6;
+            line-height: 1.1;
             filter: drop-shadow(rgba(255, 255, 255, 0.7) 1px 2px 3px);
             -webkit-text-stroke: 0px white;
           }

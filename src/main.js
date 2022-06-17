@@ -19,7 +19,10 @@ import Calendar from 'v-calendar/lib/components/calendar.umd'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import VueResource from 'vue-resource'
-
+<<<<<<< HEAD
+=======
+import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
+>>>>>>> 2d8e9d81acfc3319df8494b73e51d87ceea90db0
 import datePicker from 'vue-bootstrap-datetimepicker';
 import 'pc-bootstrap4-datetimepicker/build/css/bootstrap-datetimepicker.css';
 

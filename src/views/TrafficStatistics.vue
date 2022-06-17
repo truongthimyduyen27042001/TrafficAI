@@ -1,6 +1,9 @@
 <template>
   <div class="traffic-statistics">
       <h1>This is traffic statistics</h1>
+      <div class="test">
+        <img src="../assets/logo_title.png" alt="hinhanh">
+      </div>
   </div>
 </template>
 
