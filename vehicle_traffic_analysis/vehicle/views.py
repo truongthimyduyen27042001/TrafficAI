@@ -14,6 +14,7 @@ from django.db.models.functions import TruncMonth,TruncDay
 from django.db.models import Count
 from calendar import monthrange 
 import pandas as pd
+import numpy as np
 from django.db.models import Q
 # Create your views here.
 import pyrebase
@@ -282,17 +283,29 @@ class DetailView(APIView):
         ___4 = data.filter(Q(date__month=10) | Q(date__month=11) | Q(date__month=12),date__year=year).count()
         morning = [_1,_2,_3,_4,_5,_6]
         night = [__1,__2,__3,__4,__5,__6]
-        max_season = max(___1,___2,___3,___4)
-        season = []
-        if ___1 == max_season:
-            season.append("1")
-        elif ___2 == max_season:
-            season.append("2")
-        elif ___3 == max_season:
-            season.append("3")
-        elif ___4 == max_season:
-            season.append("4")
-        return morning,night,season,max_season
+        _4_season = [___1,___2,___3,___4]
+        max_season = max(_4_season)
+        min_season = min(_4_season)
+        max_value = {}
+        min_value = {}
+        for i in np.arange(4):
+            if _4_season[i] == max_season:
+                max_value = {
+                'name' : i+1,
+                'quantity': max_season,
+                'percent':round((max_season/sum(_4_season))*100,2)
+            }
+            if _4_season[i] == min_season:
+                min_value = {
+                'name' : i+1,
+                'quantity': min_season,
+                'percent':round((min_season/sum(_4_season))*100,2)
+            }
+        season = {
+            'max' : max_value,
+            'min' : min_value,
+        }
+        return season,morning,night
     def get(self,request,cam="Cam1"):
         year = request.query_params.get('year')
         getData()
@@ -302,12 +315,11 @@ class DetailView(APIView):
         for i in list_years:
             years.append(i.year)
             context[int(i.year)] = self.year_filter(int(i.year),cam)
-        morning,night,season,max_season = self.getHourAverage_year(year,cam)
+        season,morning,night = self.getHourAverage_year(year,cam)
         context['years'] = years
         context['year_now'] = year
         context['data_month'] = self.month_year_filter(camera="Cam1",year=2022)
         context['morning'] = morning
         context['night'] = night
         context['season'] = season
-        context['max_season'] = max_season
         return Response(context, status=status.HTTP_201_CREATED)
