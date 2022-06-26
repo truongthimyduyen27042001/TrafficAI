@@ -13,7 +13,7 @@
                   <v-btn color="primary" class="mr-3" elevation="2">Request</v-btn>
                   <span class="camera-name">You choose: {{ selected_camera }}</span>
                   <v-spacer></v-spacer>
-                  <v-chip class="ma-2" color="white">
+                  <v-chip class="ma-2" id="real_time" color="white">
                     <v-icon left color="teal"> mdi-clock-time-nine </v-icon>
                     14:02 AM Today May,22
                   </v-chip>
@@ -110,38 +110,38 @@
                   </v-list-item>
                 </v-list>
               </v-col>
-              <v-col v-show="list_time_analysis_choice[0].active == true" cols="12" sm="12" class="mb-3">
-                <select v-model="selected_month" class="select-month text-center mr-4" style="width: 40%"
-                  :items="months">
-                  <!-- <option v-for="i in months.key">
-                    {{ i.name }}
-                  </option> -->
+              <v-col cols="12" sm="12" class="mb-3" :class="{
+                'd-flex': list_time_analysis_choice[0].active == true,
+              }" v-show="list_time_analysis_choice[0].active == true">
+                <v-card class="mr-12 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-xl border-color-primary" flat>
+                  <date-picker v-model="selected_date" :config="optionsCalendar" class="text-center"
+                    @change="onChange()"></date-picker>
+                </v-card>
+                <v-btn class="ml-3" style="background-color: #00897b; color: #fff" @click="requestDay">Request</v-btn>
+              </v-col>
+              <v-col v-show="list_time_analysis_choice[1].active == true" cols="12" sm="12" class="mb-3">
+                <select class="select-choice select-month text-center mr-4" style="width: 40%" v-model="selected_month">
+                  <option v-for="month in months" :key="month.id" :value="month" :selected="selected_month === month">
+                    {{ month.name }}
+                  </option>
                 </select>
-                <select v-model="selected_year" class="select-month text-center" ref="selected_year" style="width: 20%">
+                <select v-model="selected_year" class="select-choice select-year text-center" style="width: 20%"
+                  @change="onChangeYear()">
                   <option v-for="(year, index) in years" :key="index">
                     {{ year }}
                   </option>
                 </select>
-                <v-btn class="ml-3" style="background-color: #00897b; color: #fff" @click="getTime()">Request</v-btn>
+                <v-btn class="ml-3" style="background-color: #00897b; color: #fff" @click="requestMonth">Request</v-btn>
               </v-col>
-              <v-col cols="12" sm="12" class="mb-3" v-show="list_time_analysis_choice[1].active == true">
-                <v-card class="mr-12 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-xl mt-n4"
-                  color="teal lighten-5" flat>
-                  <date-picker v-model="date" :config="options" @dp-change="onChange" class="text-center"></date-picker>
-                </v-card>
+              <v-col v-show="list_time_analysis_choice[2].active == true" cols="12" sm="12" class="mb-3">
+                <select v-model="selected_year" class="select-choice select-year text-center" style="width: 30%">
+                  <option v-for="(year, index) in years" :key="index">
+                    {{ year }}
+                  </option>
+                </select>
+                <v-btn class="ml-3" style="background-color: #00897b; color: #fff" @click="requestYear">Request</v-btn>
               </v-col>
-              <v-col cols="12" sm="12" class="mb-3" v-show="list_time_analysis_choice[2].active == true">
-                <v-card
-                  class="mr-12 rounded-tl-xl rounded-tr-xl rounded-bl-xl rounded-br-xl mt-n4 d-flex justify-center"
-                  flat>
-                  <select v-model="selected_year" class="select-month text-center" style="width: 50%">
-                    <option v-for="(year, index) in years" :key="index">
-                      {{ year }}
-                    </option>
-                  </select>
-                </v-card>
-              </v-col>
-              
+
               <v-col cols="12" sm="12">
                 <v-btn text>Your Traitment
                   <v-icon right> mdi-chevron-down </v-icon>
@@ -155,26 +155,44 @@
         </v-app>
       </v-flex>
     </v-layout>
+    <!-- test -->
   </v-app>
 </template>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 <script type="text/javascript" src="https://yourweb.com/inc/chart.utils.js"></script>
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
 <script>
 
 import axios from 'axios';
-
+import { GChart } from "vue-google-charts/legacy";
 export default {
   name: "home",
+  components: {
+  GChart,
+  },
   type: 'bar',
   d: new Date(),
+  async created(){
+    // await this.fetchAPI_Year();
+    await this.fetchAPI();
+    document.getElementById('real_time').innerHTML(moment().format("LTS"));
+    setInterval(() => this.updateCurrentTime(), 1 * 1000);
+  },
   data: () => ({
-
-
     BE : [],
+    myChartLine:"",
+    duyen: new Date(2016, 9,  16),
+    myChart:"",
+    myChartDougnut: "",
     day: (new Date()).getDate(),
     month: (new Date()).getMonth() + 1,
     year: (new Date()).getFullYear(),
     cam: 'Cam1',
+    // option for date-pick
+    optionsCalendar: {
+      format: "DD/MM/YYYY",
+      useCurrent: true,
+    },
     task: [],
     width: 2,
     radius: 10,
@@ -184,7 +202,7 @@ export default {
     fill: false,
     type: "trend",
     autoLineWidth: false,
-    date: new Date(),
+    date_current_choice: new Date(),
     options: {
       format: "DD/MM/YYYY",
       useCurrent: true,
@@ -216,20 +234,68 @@ export default {
       "2017-05-14": 3,
       "2017-05-15": 4,
     },
-    months: {
-      "January": "01",
-      "February": "02",
-      "March": "03",
-      "April": "04",
-      "May": "05",
-      "June": "06",
-      "July": "07",
-      "August": "08",
-      "September": "09",
-      "October": "10",
-      "November": "11",
-      "December": "12"
-    },
+    months: [
+      {
+        id: 0,
+        number: 1,
+        name: "January",
+      },
+      {
+        id: 1,
+        number: 2,
+        name: "February",
+      },
+      {
+        id: 2,
+        number: 3,
+        name: "March",
+      },
+      {
+        id: 3,
+        number: 4,
+        name: "April",
+      },
+      {
+        id: 4,
+        number: 5,
+        name: "May",
+      },
+      {
+        id: 5,
+        number: 6,
+        name: "June",
+      },
+      {
+        id: 6,
+        number: 7,
+        name: "June",
+      },
+      {
+        id: 7,
+        number: 8,
+        name: "August",
+      },
+      {
+        id: 8,
+        number: 9,
+        name: "September",
+      },
+      {
+        id: 9,
+        number: 10,
+        name: "October",
+      },
+      {
+        id: 10,
+        number: 11,
+        name: "November",
+      },
+      {
+        id: 11,
+        number: 12,
+        name: "December",
+      },
+    ],
     days: {
         "1": 0,
         "2": 0,
@@ -262,11 +328,16 @@ export default {
         "29": 0,
         "30": 0
     },
-    selected_month: 'January',
+    selected_month: {
+        id: 0,
+        number: 1,
+        name: "January",
+      },
+    selected_date: new Date(),
     years: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
     selected_year: "2022",
-    cameras: ["Camera 1", "Camera 2"],
-    selected_camera: "Camera 1",
+    cameras: ["Cam1", "Cam2"],
+    selected_camera: "Cam1",
   }),
   computed: {
     theme() {
@@ -274,54 +345,34 @@ export default {
     }
   },
   methods: {
-    
-
-    onChange() {
-      alert(this.date);
-    },
-    choiceTimeHandle(id) {
-      this.list_time_analysis_choice
-        .filter((x) => x.id === id)
-        .map((x) => (x.active = true));
-      this.list_time_analysis_choice
-        .filter((x) => x.id !== id)
-        .map((x) => (x.active = false));
-    },
-    get_Tasks() {
-      axios({
-        method: 'get',
-        url: "http://localhost:8000/vehicle?year=" + this.year + "&day=" + this.day + "&month=" + this.month + "&camera=" + this.cam,
-
-      }).then(response => this.task = response.data);
-    },
-    getTime() {
-      // this.$refs.selected_month.value, this.$refs.selected_year.value
-      // console.log(this.month)
-      // this.month = this.$refs.selected_month.value;
-      // this.year = this.$refs.selected_year.value;
-      alert(this.selected_month)
-      alert(this.selected_year)
-      axios({
-        method: 'get',
-        url: "http://localhost:8000/vehicle?year=" + this.selected_year + "&day=" + "&month=" + this.selected_month.number + "&camera=" + this.cam,
-
-      }).then(response => this.task = response.data);
-      console.log('task: ', this.task)
-    }
-  },
-  mounted() {
-    
-    console.log(Object.keys(this.months))
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-
-          labels: Object.keys(this.months),
-          datasets: [{
-              label: ['# of Votes','Tuan'],
-              data: [12, 19, 3, 5, 10, 3,6,8,16,6,12,6],
-              backgroundColor: [
+    loadDataToChart(){
+      if (this.task.chart_title == "Hour"){
+        this.fetchAPI()
+        console.log("Da teeeee");
+        this.myChartLine.data.datasets[0].data = Object.values(this.task.hour);
+        this.myChartLine.data.datasets[0].label = "HOURS ON A DAY"
+        this.myChartLine.data.labels = Object.keys(this.task.hour);
+        this.myChartLine.update();
+        document.getElementById('myChart').style.display = "none";
+        document.getElementById('myChartLine').style.display = "block";
+      }
+      else if (this.task.chart_title == "Day"){
+        this.fetchAPI();
+        console.log("Da teeeee");
+        this.myChartLine.data.datasets[0].data = Object.values(this.task.chart);
+        this.myChartLine.data.datasets[0].label = "DAYS IN MONTH"
+        this.myChartLine.data.labels = Object.keys(this.task.chart);
+        this.myChartLine.update();
+        document.getElementById('myChart').style.display = "none";
+        document.getElementById('myChartLine').style.display = "block";
+      }
+      else {
+        this.fetchAPI();
+        console.log("Da teeeee");
+        this.myChart.data.datasets[0].data = Object.values(this.task.chart);
+        this.myChart.data.datasets[0].label = "MONTHS IN YEAR"
+        this.myChart.data.labels = Object.keys(this.task.chart);
+        this.myChart.data.datasets[0].backgroundColor = [
                   'rgba(255, 0, 0, 0.2)',
                   'rgba(255, 127, 0, 0.2)',
                   'rgba(255, 255, 0, 0.2)',
@@ -334,8 +385,8 @@ export default {
                   'rgba(127, 0, 255, 0.2)',
                   'rgba(255, 0, 255, 0.2)',
                   'rgba(255, 0, 127, 0.2)',
-              ],
-              borderColor: [
+          ];
+        this.myChart.data.datasets[0].borderColor= [
                   'rgba(255, 0, 0, 1)',
                   'rgba(255, 127, 0, 1)',
                   'rgba(255, 255, 0, 1)',
@@ -348,19 +399,161 @@ export default {
                   'rgba(127, 0, 255, 1)',
                   'rgba(255, 0, 255, 1)',
                   'rgba(255, 0, 127, 1)',
-                  
-              ],
-              borderWidth: 1
-          }]
-      },
-      options: {
-          scales: {
-              y: {
-                  beginAtZero: true
-              }
-          }
+          ];
+        this.myChart.borderWidth = 1;
+        this.myChart.update();
+        document.getElementById('myChartLine').style.display = "none";
+        document.getElementById('myChart').style.display = "block";
       }
-    });
+      this.set_data_doughnut()
+    },
+    onChange() {
+      alert(this.date);
+    },
+    set_data_doughnut(){
+      let sum_vehicle = this.task.truck + this.task.bus + this.task.car + this.task.motorcycle
+      this.myChartDougnut.data.datasets[0].data =[parseFloat(this.task.truck/sum_vehicle*100).toFixed(2),parseFloat(this.task.bus/sum_vehicle*100).toFixed(2),parseFloat(this.task.car/sum_vehicle*100).toFixed(2),parseFloat(this.task.motorcycle/sum_vehicle*100).toFixed(2)]
+      this.myChartDougnut.update()
+    },
+    choiceTimeHandle(id) {
+      this.list_time_analysis_choice
+        .filter((x) => x.id === id)
+        .map((x) => (x.active = true));
+      this.list_time_analysis_choice
+        .filter((x) => x.id !== id)
+        .map((x) => (x.active = false));
+    },
+    async fetchAPI() {
+      console.log("fetchAPI");
+      const data_fetch = this.task.hour;
+      console.log(
+        "Data: ",
+        this.task
+      );
+    },
+    async fetchAPI_Year() {
+      console.log("fetchAPI_YEAR");
+      const data_fetch = this.task.chart;
+      console.log("t",this.myChart.data);
+      console.log(
+        "Data: ",
+        this.task
+      );
+      console.log("data_fetch: ", data_fetch);
+      this.myChart.data.datasets[0].data = data_fetch;
+      this.myChart.update();
+    },
+    async get_Tasks() {
+      await axios({
+        method: 'get',
+        url: "http://localhost:8000/vehicle?year=" + this.selected_year + "&day=" + "&month=" + this.selected_month.number + "&camera=" + this.selected_camera,
+        // url: "http://127.0.0.1:8000/vehicle?year=2022&day=&month=&camera=Cam1"
+      }).then(response => this.task = response.data);
+      this.loadDataToChart()
+    },
+    async requestMonth() {
+      try {
+
+        console.log(this.months.filter(function(el){return el.name == "November"})[0])
+        axios
+          .get(
+            `http://localhost:8000/vehicle?year=${this.selected_year}&day=&month=${this.selected_month.number}&camera=${this.selected_camera}`
+          )
+          .then((response) => {
+            this.task = response.data;
+            this.loadDataToChart();
+          });
+      } catch (e) {
+        console.log("Error: ", e);
+      }
+    },
+    async requestDay() {
+      try {
+        let dateString = this.selected_date.toString().split("/");
+        let date = dateString[0];
+        let month = dateString[1];
+        let year = dateString[2];
+        axios
+          .get(
+            `http://localhost:8000/vehicle?year=${year}&day=${date}&month=${month}&camera=${this.selected_camera}`
+          )
+          .then((response) => {
+            this.task = response.data;
+            this.loadDataToChart();
+          });
+      } catch (e) {
+        console.log("Error: ", e);
+      }
+    },
+    async requestYear() {
+      try {
+        console.log("@@@: " + this.selected_year);
+        axios
+          .get(
+            `http://localhost:8000/vehicle?year=${this.selected_year}&day=&month=&camera=${this.selected_camera}`
+          )
+          .then((response) => {
+            this.task = response.data;
+            console.log(
+              "@@@@: " + this.selected_year
+            );
+            this.loadDataToChart();
+          });
+      } catch (e) {
+        console.log("Error: ", e);
+      }
+    },
+    getTime() {
+      alert(this.selected_month)
+      alert(this.selected_year)
+      axios({
+        method: 'get',
+        // url: "http://localhost:8000/vehicle?year=" + this.selected_year + "&day=" + "&month=" + this.selected_month.number + "&camera=" + this.cam,
+        url: "http://127.0.0.1:8000/vehicle?year=2022&day=21&month=4&camera=Cam1"
+
+      }).then(response => this.task = response.data);
+      console.log(this.task.chart_title)
+
+      console.log('task: ', this.task)
+    }
+  },
+  mounted() {   
+    const data_mychart = {
+      labels: Object.keys(this.months),
+      datasets: [{
+        label: ['# of Votes'],
+        data: [12, 19, 3, 5, 10, 3,6,8,16,6,12,6],
+        backgroundColor: [
+          'rgba(255, 0, 0, 0.2)',
+          'rgba(255, 127, 0, 0.2)',
+          'rgba(255, 255, 0, 0.2)',
+          'rgba(127, 255, 0, 0.2)',
+          'rgba(0, 255, 0, 0.2)',
+          'rgba(0, 255, 127, 0.2)',
+          'rgba(0, 255, 255, 0.2)',
+          'rgba(0, 127, 255, 0.2)',
+          'rgba(0, 0, 255, 0.2)',
+          'rgba(127, 0, 255, 0.2)',
+          'rgba(255, 0, 255, 0.2)',
+          'rgba(255, 0, 127, 0.2)',
+        ],
+        borderColor: [
+          'rgba(255, 0, 0, 1)',
+          'rgba(255, 127, 0, 1)',
+          'rgba(255, 255, 0, 1)',
+          'rgba(127, 255, 0, 1)',
+          'rgba(0, 255, 0, 1)',
+          'rgba(0, 255, 127, 1)',
+          'rgba(0, 255, 255, 1)',
+          'rgba(0, 127, 255, 1)',
+          'rgba(0, 0, 255, 1)',
+          'rgba(127, 0, 255, 1)',
+          'rgba(255, 0, 255, 1)',
+          'rgba(255, 0, 127, 1)',
+        ],
+        borderWidth: 1
+      }]
+    };
     const data_lines = {
       labels: Object.keys(this.days),
       datasets: [{
@@ -373,13 +566,13 @@ export default {
     }
     const data_doughnut = {
       labels: [
-        'Truck',
-        'Bus',
-        'Car',
-        'Motorbike'
+        'Truck (%)',
+        'Bus (%)',
+        'Car (%)',
+        'Motorbike (%)'
       ],
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Phần trăm loại xe (%)',
         data: [300, 50, 100,45],
         backgroundColor: [
           'rgb(154, 156, 233)',
@@ -390,17 +583,29 @@ export default {
         hoverOffset: 4
       }]
     };
-    console.log("Component")
+    const ctx = document.getElementById('myChart').getContext('2d');
+    this.myChart = new Chart(ctx, {
+      type: 'bar',
+      data: data_mychart, 
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
     const ctxDougnut = document.getElementById('myChartDougnut').getContext('2d');
-    const myChartDougnut = new Chart(ctxDougnut, {
+    this.myChartDougnut = new Chart(ctxDougnut, {
         type: 'doughnut',
         data:data_doughnut,
     });
     const ctxLine = document.getElementById('myChartLine').getContext('2d');
-    const myChartLine = new Chart(ctxLine, {
+    this.myChartLine = new Chart(ctxLine, {
         type: 'line',
         data:data_lines,
     });
+    this.get_Tasks();
   }
 };
 </script>
