@@ -12,7 +12,7 @@ from django.db import models
 
 
 class VehicleSpeed(models.Model):
-    date = models.DateField(default=True)
+    date = models.DateField(blank=True,default=True,null=True)
     time = models.TimeField(default=True)
     camera = models.CharField(max_length=20)
     speed = models.FloatField()
