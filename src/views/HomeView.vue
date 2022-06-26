@@ -508,8 +508,10 @@ export default {
         method: 'get',
         // url: "http://localhost:8000/vehicle?year=" + this.selected_year + "&day=" + "&month=" + this.selected_month.number + "&camera=" + this.cam,
         url: "http://127.0.0.1:8000/vehicle?year=2022&day=21&month=4&camera=Cam1"
+
       }).then(response => this.task = response.data);
       console.log(this.task.chart_title)
+
       console.log('task: ', this.task)
     }
   },
