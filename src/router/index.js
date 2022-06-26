@@ -57,7 +57,12 @@ const routes = [
     name: 'error',
     meta: {layout: 'blank'},
     component: () => import('../views/Error.vue')
-  }
+  },
+  {
+    path: '/temps',
+    name: 'temps',
+    component: () => import('../views/temp.vue')
+  },
 ]
 
 const router = new VueRouter({
