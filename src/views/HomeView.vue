@@ -452,6 +452,7 @@ export default {
     },
     async requestMonth() {
       try {
+
         console.log(this.months.filter(function(el){return el.name == "November"})[0])
         axios
           .get(
@@ -614,15 +615,19 @@ date-picker {
     text-align: center;
   }
 }
+
 .v-boder-left {
   border-left: 3px solid #00897b;
 }
+
 .v-boder-left.v-border-red {
   border-left: 3px solid red;
 }
+
 .v-boder-left.v-border-yellow {
   border-left: 3px solid rgb(251, 251, 170);
 }
+
 .v-boder-left.v-border-pink {
   border-left: 3px solid rgb(241, 184, 194);
   ;
@@ -636,28 +641,34 @@ date-picker {
     background-color: #fff !important;
     outline: 1px solid #00897b;
   }
+
   button:hover {
     background-color: #00897b !important;
     color: #fff !important;
   }
+
   .btn-analysis-active {
     background-color: #00897b !important;
     color: #fff !important;
   }
 }
+
 #video-analysis {
   overflow: hidden;
   height: 500px;
   padding: 0px;
 }
+
 .calendar-date {
   border: 1px solid #00897b;
 }
+
 .select-month {
   padding: 10px;
   border: 2px solid #00897b;
   border-radius: 10px;
 }
+
 .select-month:focus-visible {
   border: 2px solid #00897b;
 }
